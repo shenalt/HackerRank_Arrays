@@ -1,0 +1,25 @@
+ /* DESCRIPTION
+A left rotation operation on an array shifts each of the array's elements 1 unit to the left. 
+For example, if 2 left rotations are performed on array [1, 2, 3, 4, 5], then the array would 
+become [3, 4, 5, 1, 2].
+ 
+Given an array a of n integers and a number, d, perform d left rotations on the array. Return 
+the updated array to be printed as a single line of space-separated integers.
+ DESCRIPTION */
+ 
+ static int[] rotLeft(int[] a, int d) {
+        int [] newArr = new int[a.length];
+        
+        // Running through the array a and getting the index positions for each element
+        for(int i = 0; i < a.length; i++){
+            int x = i - d; // Gives us a new index
+            
+            // If the index is negative, add it to the length of the original array, a
+            if(x < 0)
+                x += a.length;
+                
+            // Store the element that is in position i in array a into the new array at its new position
+            newArr[x] = a[i];
+        }
+        return newArr;
+    }
